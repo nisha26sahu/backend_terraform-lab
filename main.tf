@@ -6,12 +6,12 @@ resource "aws_s3_bucket" "state_file_bucket" {
         Environment = "Lab"
     }
 
-    Lifecycle {
+    lifecycle {
         prevent_destroy = true
     }
 }
 
-resource "aws_s3_bucket-versioning" "version_my_bucket" {
+resource "aws_s3_bucket_versioning" "version_my_bucket" {
     bucket = aws_s3_bucket.state_file_bucket.id   #resource type.name.id
 
     versioning_configuration {
